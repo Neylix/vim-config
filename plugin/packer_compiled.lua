@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/neylix/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-git"] = {
+    loaded = true,
+    path = "/home/neylix/.local/share/nvim/site/pack/packer/start/cmp-git",
+    url = "https://github.com/petertriho/cmp-git"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/neylix/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -171,6 +176,16 @@ _G.packer_plugins = {
     path = "/home/neylix/.local/share/nvim/site/pack/packer/opt/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/neylix/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["octo.nvim"] = {
+    loaded = true,
+    path = "/home/neylix/.local/share/nvim/site/pack/packer/start/octo.nvim",
+    url = "https://github.com/pwntester/octo.nvim"
+  },
   ["onedark.nvim"] = {
     loaded = true,
     path = "/home/neylix/.local/share/nvim/site/pack/packer/start/onedark.nvim",
@@ -203,11 +218,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/neylix/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-rhubarb"] = {
-    loaded = true,
-    path = "/home/neylix/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
-    url = "https://github.com/tpope/vim-rhubarb"
   },
   ["vim-sleuth"] = {
     loaded = true,

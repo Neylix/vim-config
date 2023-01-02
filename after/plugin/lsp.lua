@@ -26,7 +26,10 @@ lsp.set_preferences({
 })
 
 lsp.setup_nvim_cmp({
-	mappings = cmp_mappings
+	mappings = cmp_mappings,
+	sources = {
+		{ name = 'git' }
+	}
 })
 
 lsp.on_attach(function(_, bufnr)
@@ -61,6 +64,8 @@ lsp.on_attach(function(_, bufnr)
 end)
 
 lsp.setup()
+
+require("cmp_git").setup()
 
 vim.diagnostic.config({
 	virtual_text = true
