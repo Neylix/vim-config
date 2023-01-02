@@ -1,5 +1,9 @@
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
+
+local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
+ft_to_parser.octo = "markdown"
+
 require('nvim-treesitter.configs').setup {
 	-- Add languages to be installed here that you want installed for treesitter
 	ensure_installed = { 'bash', 'json', 'heex', 'html', 'markdown', 'yaml', 'erlang', 'vim', 'elixir', 'javascript', 'c',
