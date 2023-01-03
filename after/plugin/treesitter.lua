@@ -9,7 +9,7 @@ require('nvim-treesitter.configs').setup {
 	ensure_installed = { 'bash', 'json', 'heex', 'html', 'markdown', 'yaml', 'erlang', 'vim', 'elixir', 'javascript', 'c',
 		'go', 'lua', 'python', 'rust', 'typescript', 'help' },
 
-	highlight = { enable = true, additional_vim_regex_hightlighting = false },
+	highlight = { enable = true, disable = { "html" }, additional_vim_regex_hightlighting = false },
 	indent = { enable = true, disable = { 'python' } },
 	incremental_selection = {
 		enable = true,
