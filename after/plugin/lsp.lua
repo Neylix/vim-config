@@ -3,7 +3,6 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.ensure_installed({
-	'eslint',
 	'sumneko_lua',
 	'elixirls',
 	'erlangls'
@@ -32,7 +31,7 @@ lsp.setup_nvim_cmp({
 	}
 })
 
-lsp.on_attach(function(_, bufnr)
+lsp.on_attach(function(client, bufnr)
 	local nmap = function(keys, func, desc)
 		if desc then
 			desc = 'LSP: ' .. desc
@@ -55,12 +54,17 @@ lsp.on_attach(function(_, bufnr)
 	end, '[W]orkspace [L]ist Folders')
 
 	-- Create a command `:Format` local to the LSP buffer
-	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-		vim.lsp.buf.format()
-	end, { desc = 'Format current buffer with LSP' })
+	if client.server_capabilities.documentFormattingProvider then
+		vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+			vim.lsp.buf.formatting_seq_sync()
+		end, { desc = 'Format current buffer with LSP' })
 
-	-- Autoformat on save
-	vim.cmd [[autocmd BufWritePre * lua vim.cmd('Format')]]
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = vim.api.nvim_create_augroup("Format", { clear = true }),
+			buffer = bufnr,
+			callback = function() vim.lsp.buf.formatting_seq_sync() end
+		})
+	end
 end)
 
 lsp.setup()
