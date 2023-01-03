@@ -32,6 +32,7 @@ require('packer').startup(function(use)
 		}
 	}
 
+	-- Autocompletion for git issue / PR / user
 	use({ 'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim' })
 
 	-- Fuzzy Finder (files, lsp, etc)
@@ -50,6 +51,13 @@ require('packer').startup(function(use)
 	use { -- Additional text objects via treesitter
 		'nvim-treesitter/nvim-treesitter-textobjects',
 		after = 'nvim-treesitter',
+	}
+
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional, for file icons
+		}
 	}
 
 	-- Git related plugins
