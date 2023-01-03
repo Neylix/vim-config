@@ -27,7 +27,12 @@ lsp.set_preferences({
 lsp.setup_nvim_cmp({
 	mappings = cmp_mappings,
 	sources = {
-		{ name = 'git' }
+		{ name = 'git' },
+		{ name = 'buffer' },
+		{ name = 'path' },
+		{ name = 'luasnip' },
+		{ name = 'nvim_lsp' },
+		{ name = 'nvim_lua' },
 	}
 })
 
