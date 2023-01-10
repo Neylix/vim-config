@@ -12,3 +12,7 @@ require('gitsigns').setup {
 
 -- Octo PR reviewer
 require('octo').setup()
+
+-- keymap for conflict resolution using git fugitive
+vim.keymap.set('n', 'gdh', ':diffget //2<cr>')
+vim.keymap.set('n', 'gdl', ':diffget //3<cr>')
