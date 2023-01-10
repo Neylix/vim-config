@@ -28,9 +28,7 @@ lsp.setup_nvim_cmp({
 	mappings = cmp_mappings,
 	sources = {
 		{ name = 'git' },
-		{ name = 'buffer' },
 		{ name = 'path' },
-		{ name = 'luasnip' },
 		{ name = 'nvim_lsp' },
 		{ name = 'nvim_lua' },
 	}
@@ -64,7 +62,7 @@ lsp.on_attach(function(client, bufnr)
 			vim.lsp.buf.format()
 		end, { desc = 'Format current buffer with LSP' })
 
-		vim.api.nvim_create_autocmd("BufWritePre", {
+		vim.api.nvim_create_autocmd("BufWritePre *", {
 			group = vim.api.nvim_create_augroup("Format", { clear = true }),
 			buffer = bufnr,
 			callback = function() vim.lsp.buf.format() end
