@@ -14,11 +14,12 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Remap to disable copy buffer in deletion
-vim.keymap.set('n', 'd', '"_d')
-vim.keymap.set('n', 'x', '"_x')
-vim.keymap.set('n', 'c', '"_c')
-vim.keymap.set('x', 'd', '"_d')
-vim.keymap.set('x', 'c', '"_c')
+vim.keymap.set({ 'n', 'v' }, 'd', '"_d')
+vim.keymap.set({ 'n', 'v' }, 'x', '"_x')
+vim.keymap.set({ 'n', 'v' }, 'c', '"_c')
+vim.keymap.set({ 'n', 'v' }, 'D', '"_D')
+vim.keymap.set({ 'n', 'v' }, 'X', '"_X')
+vim.keymap.set({ 'n', 'v' }, 'C', '"_C')
 
 -- Remap to change split view
 vim.keymap.set('n', '<leader>l', '<C-w>l')
