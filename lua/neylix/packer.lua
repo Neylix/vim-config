@@ -25,7 +25,6 @@ require('packer').startup(function(use)
 			{ 'saadparwaiz1/cmp_luasnip' },
 			{ 'hrsh7th/cmp-nvim-lsp' },
 			{ 'hrsh7th/cmp-nvim-lua' },
-
 			-- Snippets
 			{ 'L3MON4D3/LuaSnip' },
 			{ 'rafamadriz/friendly-snippets' },
@@ -79,11 +78,43 @@ require('packer').startup(function(use)
 	use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines "gcc" to comment single line
 	use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 	use 'windwp/nvim-autopairs' -- Autocompletion for brackets, quote etc
+
 	use {
 		'phaazon/hop.nvim',
 		config = function()
 			-- you can configure Hop the way you like here; see :h hop-config
 			require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 		end
+	}
+
+	use {
+		'glepnir/dashboard-nvim',
+		event = 'VimEnter',
+		config = function()
+			require('dashboard').setup {
+				theme = 'hyper',
+				config = {
+					week_header = {
+						enable = true,
+					},
+					shortcut = {
+						{ desc = 'ﮮ Update', group = '@property', action = 'PackerSync', key = 'u' },
+						{
+							desc = ' Files',
+							group = 'Label',
+							action = 'Telescope git_files',
+							key = 'f',
+						},
+						{
+							desc = ' Git PR',
+							group = 'DiagnosticHint',
+							action = 'Octo pr list',
+							key = 'p',
+						},
+					},
+				},
+			}
+		end,
+		requires = { 'nvim-tree/nvim-web-devicons' }
 	}
 end)
