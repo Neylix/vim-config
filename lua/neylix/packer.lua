@@ -79,5 +79,11 @@ require('packer').startup(function(use)
 	use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines "gcc" to comment single line
 	use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 	use 'windwp/nvim-autopairs' -- Autocompletion for brackets, quote etc
-
+	use {
+		'phaazon/hop.nvim',
+		config = function()
+			-- you can configure Hop the way you like here; see :h hop-config
+			require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+		end
+	}
 end)
