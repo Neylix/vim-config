@@ -31,9 +31,6 @@ require('packer').startup(function(use)
 		}
 	}
 
-	-- Autocompletion for git issue / PR / user
-	use({ 'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim' })
-
 	-- Fuzzy Finder (files, lsp, etc)
 	use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
 
@@ -52,6 +49,7 @@ require('packer').startup(function(use)
 		after = 'nvim-treesitter',
 	}
 
+	-- File explorer
 	use {
 		'nvim-tree/nvim-tree.lua',
 		requires = {
@@ -70,6 +68,8 @@ require('packer').startup(function(use)
 			'kyazdani42/nvim-web-devicons',
 		}
 	}
+	-- Autocompletion for git issue / PR / user
+	use({ 'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim' })
 
 	-- Other plugins
 	use 'navarasu/onedark.nvim' -- Theme inspired by Atom
@@ -79,14 +79,10 @@ require('packer').startup(function(use)
 	use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 	use 'windwp/nvim-autopairs' -- Autocompletion for brackets, quote etc
 
-	use {
-		'phaazon/hop.nvim',
-		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
-			require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-		end
-	}
+	-- Hop motion
+	use { 'phaazon/hop.nvim', }
 
+	-- Dashboard landing page
 	use {
 		'glepnir/dashboard-nvim',
 		event = 'VimEnter',
