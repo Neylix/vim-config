@@ -1,9 +1,13 @@
 local lsp = require('lsp-zero')
 
-lsp.preset('recommended')
+lsp.preset({
+	name = 'recommended',
+	set_lsp_keymaps = { preserve_mappings = false, omit = {} },
+	sign_icons = {}
+})
 
 lsp.ensure_installed({
-	'sumneko_lua',
+	'lua_ls',
 	'elixirls',
 	'erlangls'
 })
@@ -18,10 +22,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	},
 	['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
 	['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
-})
-
-lsp.set_preferences({
-	sign_icons = {}
 })
 
 lsp.setup_nvim_cmp({
@@ -62,6 +62,8 @@ lsp.on_attach(function(client, bufnr)
 		})
 	end
 end)
+
+lsp.nvim_workspace()
 
 lsp.setup()
 
